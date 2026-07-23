@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Button from "../components/ui/Button";
 import profile from "../data/profile";
 import socials from "../data/socials";
+import profilePhoto from "../assets/profile.webp";
 
 const icons = {
   GitHub: FaGithub,
@@ -70,7 +71,7 @@ function Hero() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <img
-          src="/src/assets/profile.webp"
+          src={profilePhoto}
           alt={`${profile.firstName} ${profile.lastName}`}
           className="h-56 w-56 rounded-full border-4 border-slate-800 object-cover sm:h-64 sm:w-64 md:h-80 md:w-80"
         />
