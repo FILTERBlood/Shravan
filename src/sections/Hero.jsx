@@ -40,7 +40,10 @@ function Hero() {
           <Button href="#projects" variant="primary">
             View Projects
           </Button>
-          <Button href="/Shravan_Kamble_Resume.docx" variant="secondary">
+          <Button href={`${import.meta.env.BASE_URL}Shravan_Kamble_Resume.docx`} 
+            variant="secondary"
+            download="Shravan_Kamble_Resume.docx"
+          >
             Download Resume
           </Button>
         </div>
