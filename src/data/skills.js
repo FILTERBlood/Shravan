@@ -1,14 +1,38 @@
 const skills = {
+  frontend: [
+    "React.js",
+    "JavaScript (ES6+)",
+    "HTML5",
+    "CSS3",
+    "Tailwind CSS",
+    "Bootstrap",
+    "React Hooks",
+    "React Router",
+  ],
 
-    frontend: ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
+  backend: [
+    "Node.js",
+    "Express.js",
+    "RESTful APIs",
+    "JWT Authentication",
+    "Google OAuth",
+    "MVC Architecture",
+  ],
 
-    backend: ["Node.js", "Express.js"],
+  database: ["MongoDB", "Mongoose", "MySQL"],
 
-    database: ["MongoDB", "SQL"],
+  languages: ["JavaScript", "SQL", "Python", "C++"],
 
-    analytics: ["Excel", "Power BI", "Python"],
-
+  tools: [
+    "Git",
+    "GitHub",
+    "VS Code",
+    "Postman",
+    "MongoDB Compass",
+    "Excel (Advanced + VBA)",
+    "Power BI",
+    "Databricks",
+  ],
 };
 
 export default skills;
-

@@ -1,20 +1,21 @@
-const profile ={
-    firstName: "Shravan",
-    lastName: "Kamble",
+const profile = {
+  firstName: "Shravan",
+  lastName: "Kamble",
 
-    headLine: "MERN Developer & Data Analyst",
+  headLine: "MERN Stack Developer",
 
-    location: "Mumbai, India",
+  location: "Mumbai, India",
 
-    email: "shravankamble151@gmail.com",
+  email: "shravankamble151@gmail.com",
 
-    github: "https://github.com/FILTERBlood",
+  phone: "+91-9324348332",
 
-    linkedin: "https://www.linkedin.com/in/shravankamble/",
+  github: "https://github.com/FILTERBlood",
 
-    summary:
-    "Results-oriented Data Analyst with experience in Excel, SQL, Power BI, Python, and MERN Stack development. Passionate about building scalable web applications and solving business problems with data.",
+  linkedin: "https://linkedin.com/in/shravankamble",
 
-}
+  summary:
+    "MERN Stack Developer with a strong foundation in JavaScript, React.js, Node.js, Express.js, and MongoDB. Experienced in building responsive full-stack applications, RESTful APIs, and secure authentication systems using JWT and OAuth. Currently working as a Data Analyst, bringing strong skills in data enrichment, process optimization, and delivering high-accuracy outputs. Passionate about clean code, modern UI/UX, and contributing to innovative software teams.",
+};
 
 export default profile;

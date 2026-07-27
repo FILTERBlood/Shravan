@@ -1,14 +1,17 @@
-function Logo() {
+import Button from "./Button";
+
+function Logo({onClick}) {
     return(
-        <a 
-            href="#hero"
+        <button 
+            type="button"
+            onClick={onClick}
             className="text-2xl font-bold tracking-tight text-white"
             aria-label="Go to top of page"
             >
                 <span className="text-blue-500">&lt;</span>
                 SK
                 <span className="text-blue-500"> /&gt;</span>
-        </a>
+        </button>
     );
 }
 

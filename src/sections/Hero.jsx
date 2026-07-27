@@ -14,8 +14,7 @@ const icons = {
 function Hero() {
   return (
     <section
-      id="hero"
-      className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-12 px-6 pb-24 pt-16 sm:px-8 md:flex-row md:justify-between md:gap-16 md:pt-28 lg:gap-20"
+      id="hero" className="min-h-screen max-w-6xl mx-auto px-6 pt-24 pb-16 flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-10 md:gap-16 "
     >
       {/* Left column: text */}
       <motion.div
@@ -43,7 +42,7 @@ function Hero() {
           {profile.summary}
         </p>
 
-        <div className="mt-9 flex flex-wrap justify-center gap-4 md:justify-start">
+        <div className=" mt-12 flex flex-wrap justify-center gap-4 md:justify-start">
           <Button href="#projects" variant="primary">
             View Projects
           </Button>
@@ -56,7 +55,7 @@ function Hero() {
           </Button>
         </div>
 
-        <div className="mt-10 flex justify-center gap-5 md:justify-start">
+        <div className="translate-y-4 flex justify-center md:justify-start gap-5">
           {socials.map((item) => {
             const Icon = icons[item.name];
             return (

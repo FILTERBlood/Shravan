@@ -2,33 +2,41 @@ import { useState } from "react";
 import Logo from "../ui/Logo";
 import Button from "../ui/Button";
 
-const navItems = ["About", "Experience", "Projects", "Skills", "Contact"];
+const navItems = ["About", "Experience", "Projects", "Skills", "Contact", "Education"];
 
-function Navbar() {
+function Navbar({ activeSection, setActiveSection }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleNavClick = (item) => {
+    setActiveSection(item.toLowerCase());
+    setIsOpen(false);
+  };
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-8 py-5">
-        <Logo />
+        <Logo onClick={() => handleNavClick("hero")} />
 
         {/* Desktop Navigation */}
         <ul className="hidden items-center gap-8 md:flex">
           {navItems.map((item) => (
             <li key={item}>
-              <a
-                href={`#${item.toLowerCase()}`}
-                className="text-slate-300 transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none"
+              <button
+                type="button"
+                onClick={() => handleNavClick(item)}
+                className={`text-slate-300 transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none ${
+                  activeSection === item.toLowerCase() ? "text-white" : ""
+                }`}
               >
                 {item}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
 
         {/* Desktop Resume Button */}
         <div className="hidden md:block">
-          <Button>Resume</Button>
+          <Button href="#" variant="primary">Resume</Button>
         </div>
 
         {/* Mobile Hamburger */}
@@ -70,18 +78,18 @@ function Navbar() {
           <ul className="flex flex-col gap-2 px-6 py-4">
             {navItems.map((item) => (
               <li key={item}>
-                <a
-                  href={`#${item.toLowerCase()}`}
-                  onClick={() => setIsOpen(false)}
-                  className="block rounded-md px-3 py-2 text-slate-300 transition-colors hover:bg-slate-900 hover:text-white"
+                <button
+                  type="button"
+                  onClick={() => handleNavClick(item)}
+                  className="block w-full rounded-md px-3 py-2 text-left text-slate-300 transition-colors hover:bg-slate-900 hover:text-white"
                 >
                   {item}
-                </a>
+                </button>
               </li>
             ))}
 
             <li className="pt-2">
-              <Button>Resume</Button>
+              <Button href="#" variant="primary">Resume</Button>
             </li>
           </ul>
         </div>
