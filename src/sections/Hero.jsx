@@ -15,32 +15,40 @@ function Hero() {
   return (
     <section
       id="hero"
-      className="mx-auto flex max-w-6xl flex-col-reverse items-center gap-12 px-8 pb-20 pt-12 md:flex-row md:justify-between md:pt-24"
+      className="relative mx-auto flex max-w-6xl flex-col-reverse items-center gap-12 px-6 pb-24 pt-16 sm:px-8 md:flex-row md:justify-between md:gap-16 md:pt-28 lg:gap-20"
     >
       {/* Left column: text */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-xl text-center md:text-left"
       >
-        <p className="mb-3 text-slate-400">Hello, I'm</p>
+        <p className="mb-3 text-sm font-medium tracking-wide text-slate-400 uppercase">
+          Hello, I'm
+        </p>
 
-        <h1 className="text-4xl font-bold text-white sm:text-5xl">
-          {profile.firstName} {profile.lastName}
+        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+          {profile.firstName}{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+            {profile.lastName}
+          </span>
         </h1>
 
-        <h2 className="mt-2 text-xl font-medium text-blue-500 sm:text-2xl">
+        <h2 className="mt-3 text-xl font-medium text-blue-400 sm:text-2xl">
           {profile.headLine}
         </h2>
 
-        <p className="mt-5 text-slate-300">{profile.summary}</p>
+        <p className="mt-6 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg">
+          {profile.summary}
+        </p>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
+        <div className="mt-9 flex flex-wrap justify-center gap-4 md:justify-start">
           <Button href="#projects" variant="primary">
             View Projects
           </Button>
-          <Button href={`${import.meta.env.BASE_URL}Shravan_Kamble_Resume.docx`} 
+          <Button
+            href={`${import.meta.env.BASE_URL}Shravan_Kamble_Resume.docx`}
             variant="secondary"
             download="Shravan_Kamble_Resume.docx"
           >
@@ -48,7 +56,7 @@ function Hero() {
           </Button>
         </div>
 
-        <div className="mt-8 flex justify-center gap-6 md:justify-start">
+        <div className="mt-10 flex justify-center gap-5 md:justify-start">
           {socials.map((item) => {
             const Icon = icons[item.name];
             return (
@@ -58,9 +66,9 @@ function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={item.name}
-                className="text-slate-400 transition-colors hover:text-white"
+                className="group flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/80 bg-slate-800/50 text-slate-400 transition-all duration-300 hover:border-blue-500/60 hover:bg-blue-500/10 hover:text-blue-400 hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.45)]"
               >
-                <Icon className="h-6 w-6" />
+                <Icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
               </a>
             );
           })}
@@ -69,14 +77,18 @@ function Hero() {
 
       {/* Right column: photo */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.92 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="relative"
       >
+        {/* Soft glow behind the photo */}
+        <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-blue-500/20 via-cyan-400/10 to-transparent blur-2xl" />
+
         <img
           src={profilePhoto}
           alt={`${profile.firstName} ${profile.lastName}`}
-          className="h-56 w-56 rounded-full border-4 border-slate-800 object-cover sm:h-64 sm:w-64 md:h-80 md:w-80"
+          className="relative h-56 w-56 rounded-full border-4 border-slate-700/80 object-cover shadow-2xl shadow-blue-900/20 ring-1 ring-white/5 sm:h-64 sm:w-64 md:h-80 md:w-80"
         />
       </motion.div>
     </section>
