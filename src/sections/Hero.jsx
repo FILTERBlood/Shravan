@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaXTwitter } from "react-icons/fa6";
 import Button from "../components/ui/Button";
 import profile from "../data/profile";
 import socials from "../data/socials";
@@ -8,7 +8,9 @@ import profilePhoto from "../assets/profile.webp";
 const icons = {
   GitHub: FaGithub,
   LinkedIn: FaLinkedin,
+  X: FaXTwitter,
   Email: FaEnvelope,
+
 };
 
 function Hero({setActiveSection}) {

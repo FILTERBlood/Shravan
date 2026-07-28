@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaXTwitter } from "react-icons/fa6";
 import profile from "../data/profile";
 import socials from "../data/socials";
 
 const icons = {
   GitHub: FaGithub,
   LinkedIn: FaLinkedin,
+  X: FaXTwitter,
   Email: FaEnvelope,
+
 };
 
 function Contact() {
