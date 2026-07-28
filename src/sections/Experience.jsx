@@ -3,7 +3,7 @@ import experience from "../data/experience";
 
 function Experience() {
   return (
-    <section id="experience" className="mx-auto max-w-6xl px-6 py-24 sm:px-8">
+    <section id="experience" className="mx-auto max-w-4xl px-6 pt-28 pb-12 sm:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

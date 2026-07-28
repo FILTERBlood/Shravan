@@ -16,19 +16,7 @@ function Button({
   return (
     <a
       href={href}
-      className={`
-        inline-flex
-        items-center
-        justify-center
-        rounded-xl
-        px-8
-        py-4
-        min-w-[190px]
-        text-base
-        font-semibold
-        transition-all
-        duration-300
-        hover:-translate-y-1
+        className={`inline-flex items-center justify-center rounded-xl px-6 py-2 min-w-[190px] text-base font-semibold transition-all duration-300 hover:-translate-y-1
         ${variants[variant]}
         ${className}
       `}

@@ -1,4 +1,11 @@
 @import "tailwindcss";
+@layer base{
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
 
 /* Smooth scrolling */
 html {
@@ -6,11 +13,6 @@ html {
 }
 
 /* Remove default spacing */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 /* Default body styles */
 body {

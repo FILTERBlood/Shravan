@@ -14,7 +14,7 @@ const icons = {
 function Hero() {
   return (
     <section
-      id="hero" className="min-h-screen max-w-6xl mx-auto px-6 pt-24 pb-16 flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-10 md:gap-16 "
+      id="hero" className="min-h-screen max-w-4xl mx-auto px-6 pt-24 pb-12 flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-10 md:gap-16 "
     >
       {/* Left column: text */}
       <motion.div
@@ -23,7 +23,7 @@ function Hero() {
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-xl text-center md:text-left"
       >
-        <p className="mb-3 text-sm font-medium tracking-wide text-slate-400 uppercase">
+        <p className="mb-3 text-xl font-medium tracking-wide text-slate-400 uppercase">
           Hello, I'm
         </p>
 

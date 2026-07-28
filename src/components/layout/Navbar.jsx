@@ -14,7 +14,7 @@ function Navbar({ activeSection, setActiveSection }) {
 
   return (
     <header className="fixed top-0 left-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-8 py-5">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Logo onClick={() => handleNavClick("hero")} />
 
         {/* Desktop Navigation */}
@@ -33,11 +33,6 @@ function Navbar({ activeSection, setActiveSection }) {
             </li>
           ))}
         </ul>
-
-        {/* Desktop Resume Button */}
-        <div className="hidden md:block">
-          <Button href="#" variant="primary">Resume</Button>
-        </div>
 
         {/* Mobile Hamburger */}
         <button
@@ -88,9 +83,6 @@ function Navbar({ activeSection, setActiveSection }) {
               </li>
             ))}
 
-            <li className="pt-2">
-              <Button href="#" variant="primary">Resume</Button>
-            </li>
           </ul>
         </div>
       )}
