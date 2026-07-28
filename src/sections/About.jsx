@@ -17,9 +17,11 @@ function About() {
           About Me
         </h2>
 
-        <h3 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
-          Building things with code, backed by real-world data experience
-        </h3>
+          <h3 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
+            Building things with code,
+            <br />
+            backed by real-world data experience
+          </h3>
 
         <p className="mt-6 text-lg leading-relaxed text-slate-300">
           {profile.summary}
@@ -32,6 +34,9 @@ function About() {
           full-stack applications with the MERN stack — from authentication
           systems to REST APIs to responsive UIs — and I'm actively working
           toward a full-time role as a software developer.
+        </p>
+        <p className="mt-4 text-lg leading-relaxed text-slate-300">
+          Outside of coding, I enjoy cooking and video editing 
         </p>
       </motion.div>
     </section>

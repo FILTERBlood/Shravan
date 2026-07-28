@@ -55,9 +55,9 @@ function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-slate-300 transition-colors hover:text-white"
+                      className="flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800/50 px-4 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:border-blue-500/60 hover:bg-blue-500/10 hover:text-blue-400"
                     >
-                      <FaGithub className="h-4 w-4" />
+                      <FaGithub className="h-4 w-4 " />
                       Code
                     </a>
                   )}

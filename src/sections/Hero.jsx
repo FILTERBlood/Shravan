@@ -11,7 +11,7 @@ const icons = {
   Email: FaEnvelope,
 };
 
-function Hero() {
+function Hero({setActiveSection}) {
   return (
     <section
       id="hero" className="min-h-screen max-w-4xl mx-auto px-6 pt-24 pb-12 flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-10 md:gap-16 "
@@ -43,7 +43,7 @@ function Hero() {
         </p>
 
         <div className=" mt-12 flex flex-wrap justify-center gap-4 md:justify-start">
-          <Button href="#projects" variant="primary">
+          <Button onClick={()=>setActiveSection("projects")} variant="primary">
             View Projects
           </Button>
           <Button
