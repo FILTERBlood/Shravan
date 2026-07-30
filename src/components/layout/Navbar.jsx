@@ -1,11 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Logo from "../ui/Logo";
-import Button from "../ui/Button";
 
-const navItems = ["About", "Experience", "Projects", "Skills", "Contact", "Education"];
+const navItems = [
+  "About",
+  "Experience",
+  "Projects",
+  "Skills",
+  "Contact",
+  "Education",
+];
 
 function Navbar({ activeSection, setActiveSection }) {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        isOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   const handleNavClick = (item) => {
     setActiveSection(item.toLowerCase());
@@ -24,8 +49,10 @@ function Navbar({ activeSection, setActiveSection }) {
               <button
                 type="button"
                 onClick={() => handleNavClick(item)}
-                className={`text-slate-300 transition-colors hover:text-white focus-visible:text-white focus-visible:outline-none ${
-                  activeSection === item.toLowerCase() ? "text-white" : ""
+                className={`transition-colors hover:text-white ${
+                  activeSection === item.toLowerCase()
+                    ? "text-white"
+                    : "text-slate-300"
                 }`}
               >
                 {item}
@@ -34,58 +61,57 @@ function Navbar({ activeSection, setActiveSection }) {
           ))}
         </ul>
 
-        {/* Mobile Hamburger */}
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-slate-300 hover:text-white focus:outline-none md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={isOpen}
-        >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        {/* Mobile Menu */}
+        <div ref={menuRef} className="relative md:hidden">
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-slate-300 hover:text-white"
+            aria-label="Toggle Menu"
           >
-            {isOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-      </nav>
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {isOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="border-t border-slate-800 bg-slate-950/95 backdrop-blur-md md:hidden">
-          <ul className="flex flex-col gap-2 px-6 py-4">
-            {navItems.map((item) => (
-              <li key={item}>
-                <button
-                  type="button"
-                  onClick={() => handleNavClick(item)}
-                  className="block w-full rounded-md px-3 py-2 text-left text-slate-300 transition-colors hover:bg-slate-900 hover:text-white"
-                >
-                  {item}
-                </button>
-              </li>
-            ))}
-
-          </ul>
+          {isOpen && (
+            <div className="absolute right-0 mt-4 w-56 rounded-xl border border-slate-800 bg-slate-950 shadow-xl">
+              <ul className="flex flex-col p-3">
+                {navItems.map((item) => (
+                  <li key={item}>
+                    <button
+                      type="button"
+                      onClick={() => handleNavClick(item)}
+                      className="block w-full rounded-lg px-4 py-3 text-left text-slate-300 transition hover:bg-slate-900 hover:text-white"
+                    >
+                      {item}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-      )}
+      </nav>
     </header>
   );
 }
