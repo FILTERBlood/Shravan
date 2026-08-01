@@ -6,6 +6,7 @@ import profile from "../data/profile";
 import socials from "../data/socials";
 import profilePhoto from "../assets/profile.webp";
 import ResumeModal from "../components/ui/ResumeModal";
+import HiddenAlbum from "../components/ui/HiddenAlbum";
 
 const icons = {
   GitHub: FaGithub,
@@ -17,6 +18,8 @@ const icons = {
 
 function Hero({setActiveSection}) {
 const [isModalOpen, setIsModalOpen] = useState(false);
+const [isHiddenAlbumOpen, setIsHiddenAlbumOpen] = useState(false);
+
   return (
     <section
       id="hero" className="min-h-screen max-w-4xl mx-auto px-6 pt-24 pb-12 flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-10 md:gap-16 "
@@ -86,14 +89,21 @@ const [isModalOpen, setIsModalOpen] = useState(false);
       >
         {/* Soft glow behind the photo */}
         <div className="absolute -inset-4 rounded-full bg-gradient-to-tr from-blue-500/20 via-cyan-400/10 to-transparent blur-2xl" />
-
-        <img
-          src={profilePhoto}
-          alt={`${profile.firstName} ${profile.lastName}`}
-          className="relative h-56 w-56 rounded-full border-4 border-slate-700/80 object-cover shadow-2xl shadow-blue-900/20 ring-1 ring-white/5 sm:h-64 sm:w-64 md:h-80 md:w-80"
-        />
+        <button 
+          type="button" 
+          onClick={() => setIsHiddenAlbumOpen(true)}
+          className="cursor-pointer"
+          aria-label="Open hidden album"      
+        >
+          <img
+            src={profilePhoto}
+            alt={`${profile.firstName} ${profile.lastName}`}
+            className="relative h-56 w-56 rounded-full border-4 border-slate-700/80 object-cover shadow-2xl shadow-blue-900/20 ring-1 ring-white/5 sm:h-64 sm:w-64 md:h-80 md:w-80"
+            />
+          </button>  
       </motion.div>
       <ResumeModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <HiddenAlbum isOpen={isHiddenAlbumOpen} onClose={() => setIsHiddenAlbumOpen(false)} />
     </section>
   );
 }
